@@ -1,9 +1,11 @@
 SsBuddy::Application.routes.draw do
-  get "users/new"
+  resources :users
 
   get "home/index"
   get "home/about"
   get "home/contact"
+
+  match '/signup' => 'users#new'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
