@@ -1,5 +1,9 @@
 SsBuddy::Application.routes.draw do
+  get "users/new"
+
   get "home/index"
+  get "home/about"
+  get "home/contact"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -51,6 +55,8 @@ SsBuddy::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   root :to => 'home#index'
+  match 'about' => 'home#about'
+  match 'contact' => 'home#contact'
 
   # See how all your routes lay out with "rake routes"
 
