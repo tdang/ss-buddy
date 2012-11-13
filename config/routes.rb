@@ -1,11 +1,14 @@
 SsBuddy::Application.routes.draw do
   resources :users
+  resources :sessions, only: [:new, :create, :destroy]
 
   get "home/index"
   get "home/about"
   get "home/contact"
 
   match '/signup' => 'users#new'
+  match '/signout' => 'sessions#destroy', via: :delete
+  match '/signin' => 'sessions#new'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
